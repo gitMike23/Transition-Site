@@ -1,0 +1,49 @@
+
+
+@import"./base/mixins";
+@import"./base/vars";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    height: 100%;
+    @include Montserrat;
+    font-size: 16px;
+    background-color: $background-main;
+    overflow-x: hidden;
+}
+
+body.hide {
+    overflow: hidden;
+}
+
+
+
+
+.scrollmagic-pin-spacer {
+    position:static !important;
+
+}
+
+
+@import"./blocks/header";
+@import"./blocks/main";
+@import"./blocks/desc";
+@import"./blocks/img";
+@import"./blocks/btn";
+@import"./blocks/nav";
+@import"./blocks/burger";
+@import"./blocks/reveal";
+@import"./blocks/cursor";
+@import"./blocks/title";
+@import"./blocks/fashion";
+@import"./blocks/swipe";

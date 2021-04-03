@@ -1,0 +1,33 @@
+.desc {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1 1 50%;
+    color: $white-text;
+    padding: 0 1.2rem;
+    h2 {
+        @include Abril;
+        letter-spacing: 0.3rem;
+        font-size: 3.3rem;
+    }
+    p {
+        padding: 3rem 0;
+        color: $paragraph;
+        font-size: 1.5rem;
+        flex: 1 1 auto;
+    }
+    &__span {
+        &-mountain {
+            color: $bg-blue;
+        }
+        &-hike {
+            color: $bg-hike;
+        }
+        &-fashion {
+            color: $bg-fashion; 
+        }
+    }
+
+} 

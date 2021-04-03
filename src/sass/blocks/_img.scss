@@ -1,0 +1,19 @@
+.img {
+    position: relative;
+    flex: 0 1 45%;
+    padding: 0 1.2rem 0 0;
+    overflow: hidden;
+
+    min-height: 400px;
+
+   
+    img {
+        width: calc(100% - 1.2rem);
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
