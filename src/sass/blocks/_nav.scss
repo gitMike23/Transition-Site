@@ -14,44 +14,117 @@
     clip-path: circle(50px at 100% -10%);
     -webkit-clip-path: circle(50px at 100% -10%);
 
-    &-wrapper {
-        width: 80%;
-        height: 100%;
-        margin: -15vh auto 0 auto;        
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    &-header {
+        &__content {
+            position: relative;
+            min-height: 15vh;
 
-    &__links {
-        font-size: 3rem;  
-        flex: 0 1 40%;
-        &-link {
-            list-style-type: none;
-            padding: 3rem 0;
-            &:last-child {
-                padding-bottom: 0%;
-            }
-            &:first-child {
-                padding-top: 0;
-            }
-        }   
-    }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 1rem;
     
-    &__contact {
-        flex: 0 1 60%;
+        }
+    }
 
-        &-title {
-            font-size: 3rem;
-            font-weight: $fw-medium;
-            padding: 2rem 0;
+    &-main {
+        &__content {
+            // background-color:aqua;
+            min-height: 85vh;
+            display: flex;  
+            align-items: center;
+            justify-content: space-between;
+            
         }
 
-        &-text {
+        &__links {
+            flex: 0 1 20%;
+            padding: 1rem;
+            margin-right: 1rem;
+
+            // background-color: hotpink;
+
+            
+
+            li {
+                list-style-type: none;
+                margin-bottom: 1.5rem;
+                cursor: pointer;
+
+                // background-color:saddlebrown;
+
+                &:last-child {
+                   margin-bottom: 0;
+                }
+            }
+        }
+
+        &__link {
+
+            // background-color: red;
+
+            text-decoration: none;
+            color: black;
+            
+            font-weight: 500;
+            display: inline-block;
+
+            font-size: 1.4rem;
+
+            padding: 0.4rem  0.9rem;
+
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 1rem;
+            
+            
+            transition: 0.4s ease;
+
+            &:hover {
+                color:rgb(255, 255, 255);
+                &.ld {
+                    background-color: #1876f2d5;
+                }
+
+                &.gh {
+                    background-color:#222222f5;
+                }
+                &.fb {
+                    background-color:#3b5998;
+                }
+
+                &.tg {
+                    background-color:#0088cce5;
+                }
+                
+                
+            }
+        }
+
+        &__contact {
+            // background-color:bisque;
+            flex: 0 1 70%;
+        }
+
+    }
+
+    &-contact {
+        padding: 2rem;
+        margin-left: 1rem;
+        &__title {
+            font-size: 2.7rem;
+            font-weight: $fw-medium;
+            padding: 1.5rem 0;
+            margin-bottom: 1rem;
+        }
+
+        &__text {
             font-size: 1.5rem;
             line-height: 2rem;
         }
     }
+   
+    
 }
 
 

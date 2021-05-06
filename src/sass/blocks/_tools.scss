@@ -1,0 +1,167 @@
+.tools {
+
+   
+   
+    &__content {
+       
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column; 
+
+    }
+
+    &__title {
+        text-align: center;  
+    }
+
+    &__row {
+        
+        padding: 2rem 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 18.75rem);
+        grid-template-rows: minmax(24rem, auto);
+        grid-auto-rows: minmax(24rem, auto);
+        gap: 1.5rem;
+        justify-content: center;
+
+        margin-bottom: 2rem;
+
+    }
+    
+
+    &__technology {
+        cursor: pointer;
+        width: 100%;
+        min-height: 100%;
+        // width: 18.75rem;
+        // min-height: 24rem;
+    }
+
+    &__btn {
+        width: max-content;
+        max-width: 15rem;
+        display: block;
+        margin-top: auto;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.726);
+        border: 1px solid rgba(231, 196, 191, 0.233);
+        box-shadow: 15px 5px 25px -10px rgba(231, 196, 191, 0.3);
+    }
+
+   
+
+}
+
+.technology {
+    position: relative;
+
+    &:hover {
+        .technology__front {
+            transform: perspective(42.5rem) rotateY(-180deg);
+        }
+
+        .technology__back {
+            transform: perspective(42.5rem) rotateY(0deg);
+        }
+    }
+
+    &__front, &__back {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        backface-visibility: hidden;
+        border-radius: 1rem;
+        border: 1px solid rgba(231, 196, 191, 0.233);
+        box-shadow: 9px -2px 27px -9px rgba(231, 196, 191, 0.3);
+
+       
+
+        transition: transform .6s linear;
+    }
+
+    &__front {
+        --clr-html: rgb(227, 76, 54);
+        --clr-css: rgba(48, 106, 241, 0.692);
+        --clr-js: rgb(240, 219, 79);
+        --clr-sass: rgb(205, 103, 153);
+        --clr-bootstrap: rgb(85, 60, 123);
+        --clr-gulp: rgb(219, 68, 70);
+        
+
+        transform: perspective(42.5rem) rotateY(0deg);
+        background-color: rgba(44, 49, 61, 0.027);
+        
+       
+
+        &-html {
+            color: var(--clr-html);
+        }
+
+        &-css {
+            color: var(--clr-css);
+        }
+
+        &-js {
+            color: var(--clr-js);
+        }
+
+        &-sass {
+            color: var(--clr-sass);
+        }
+
+        &-bootstrap {
+            color: var(--clr-bootstrap);
+        }
+
+        &-gulp {
+            color: var(--clr-gulp);
+        }
+
+        
+
+        i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            font-size: 10rem;
+
+        }
+    }
+
+
+    &__back {
+        background: #f1f1f1;
+        color: $background-main;
+
+        padding: 1rem;
+
+        transform: perspective(42.5rem) rotateY(180deg);
+
+        &-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-title {
+            font-size: 2rem;
+            letter-spacing: 0.2rem;
+            margin-bottom: 3rem;
+        }
+
+        &-descr {
+            font-size: 1.2rem;
+        }   
+    }
+
+
+}
+
+    
+
+

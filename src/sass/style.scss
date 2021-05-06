@@ -7,6 +7,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
 
 html {
@@ -20,23 +21,38 @@ body {
     font-size: 16px;
     background-color: $background-main;
     overflow-x: hidden;
-}
 
-body.hide {
-    overflow: hidden;
-}
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
-
-
-
-.scrollmagic-pin-spacer {
-    position:static !important;
+    &.hide {
+        overflow: hidden;
+    }
 
 }
+
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+
+
+
+// .scrollmagic-pin-spacer {
+//     position:static !important;
+
+// }
 
 
 @import"./blocks/header";
-@import"./blocks/main";
+@import"./blocks/slide";
+
+
+
+
 @import"./blocks/desc";
 @import"./blocks/img";
 @import"./blocks/btn";
@@ -45,5 +61,11 @@ body.hide {
 @import"./blocks/reveal";
 @import"./blocks/cursor";
 @import"./blocks/title";
-@import"./blocks/fashion";
+@import"./blocks/projects";
 @import"./blocks/swipe";
+@import"./blocks/scrollup";
+
+@import"./blocks/tools";
+
+
+

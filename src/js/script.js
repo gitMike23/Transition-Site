@@ -8,6 +8,7 @@ const cursor = document.querySelector('.cursor');
 const cursorTxt = cursor.querySelector('.cursor__text');
 const burgers = document.querySelectorAll('.burger');
 const logo = document.querySelector('.header__id');
+const header = document.querySelector('.header');
 
 function animateSlides() {
     // Init controller
@@ -15,15 +16,15 @@ function animateSlides() {
 
     // Selecting elements
     const slides = document.querySelectorAll('.main__slide');
-    const header = document.querySelector('.header');
+    
 
     // Loop over each slide
     slides.forEach((slide, index, slides) => {
         const revealImg = slide.querySelector('.img__reveal');
-        const img = slide.querySelector('img');
+        const img = slide.querySelector('#img__animation');
         const revealText = slide.querySelector('.text__reveal');
     
-        const animTrigger  = slide.querySelector('.main__slide-wrapper');
+
 
         // GSAP
         const slideTl = gsap.timeline({
@@ -34,7 +35,6 @@ function animateSlides() {
         slideTl.fromTo(img, {scale: 2}, {scale: 1}, '-=0.9');
         slideTl.fromTo(img, {zIndex: -1}, {zIndex: 1}, '-=1');
         slideTl.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.2');
-        
         // Creatig Scene
 
         slidescene = new ScrollMagic.Scene({
@@ -55,9 +55,10 @@ function animateSlides() {
 
 
         let nextSlide = slides.length - 1 === index ? "end" : slides[index+1];
-        pageTl.fromTo(nextSlide, {y: '0%'}, {y: '50%'})
-        pageTl.fromTo(slide, {opacity: 1, scale: 1}, {opacity: 0, scale: 0.5})
-        pageTl.fromTo(nextSlide, {y: '50%'}, {y: '0%'}, '-=0.5')
+        pageTl.fromTo(nextSlide, {y: '0%'}, {y: '50%'});
+        pageTl.fromTo(slide, {opacity: 1, scale: 1}, {opacity: 0, scale: 0.5});
+        pageTl.fromTo(nextSlide, {y: '50%'}, {y: '0%'}, '-=0.5');
+        pageTl.fromTo(nextSlide, {opacity: 0.5, scale: 0.8}, {opacity: 1, scale: 1});
 
         pageScene = new ScrollMagic.Scene({
             triggerElement: slide,
@@ -86,22 +87,24 @@ function cursorMove(e) {
 function activeCursor(e) {
     const item = e.target;
     if(item.classList.contains("header__id") || item.classList.contains("burger")) {
-        cursor.classList.add("cursor__active-nav")
+        cursor.classList.add("cursor__active-nav");
     } else {
-        cursor.classList.remove("cursor__active-nav")
+        cursor.classList.remove("cursor__active-nav");
     }
 
     
 
     if(item.classList.contains("btn")){
-        cursor.classList.add("cursor__active-btn")
-        cursorTxt.innerText = "Tap"
+        cursor.classList.add("cursor__active-btn");
         gsap.to(".title__swipe", 0.7, {y: "0%"});
+        cursorTxt.innerText = "Tap";
+        
     } else {
-        cursor.classList.remove("cursor__active-btn")
-        cursorTxt.innerText = ""
+        cursor.classList.remove("cursor__active-btn");
+        cursorTxt.innerText = "";
         gsap.to(".title__swipe", 0.7, {y: "100%"});
     }
+
 
 }
 
@@ -149,7 +152,7 @@ barba.init({
         },
 
         {
-            namespace: 'fashion',
+            namespace: 'projects',
             beforeEnter() {
                 logo.href = "../index.html";
                 detailAnimation();
@@ -179,7 +182,7 @@ barba.init({
             const tl = gsap.timeline({defaults: {ease: 'power2.inOut'}});
             tl.fromTo(".swipe", 1, {x: '0%'}, {x: '100%', stagger: 0.25, onComplete: done});
             tl.fromTo(next.container, 1, {opacity: 0}, {opacity: 1});
-            tl.fromTo('header', 1, {y: '-100%'}, {y: '0%', ease: 'power2.inOut'});
+            tl.fromTo(header, 1, {y: '-100%'}, {y: '0%', ease: 'power2.inOut'});
             
         }
 
@@ -219,3 +222,44 @@ window.addEventListener('mousemove', cursorMove);
 window.addEventListener('mouseover', activeCursor);
 
 
+
+
+//SCROLL UP BTN
+
+const offset = 100; 
+const scrollUp = document.querySelector('.scroll-up'); 
+const scrollUpSvgPath = document.querySelector('.scroll-up__svg-path'); 
+const pathLength = scrollUpSvgPath.getTotalLength(); 
+
+
+scrollUpSvgPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+scrollUpSvgPath.style.transition = 'stroke-dashoffset 20ms';
+
+const getTop = () => window.pageYOffset || document.documentElement.scrollTop; 
+
+
+//updateDateOffset 
+const updateDateOffset = () => {
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const dashoffset = pathLength - (getTop() * pathLength / height);
+    scrollUpSvgPath.style.strokeDashoffset = dashoffset;
+};
+
+//onScroll  
+window.addEventListener('scroll', () => {
+    updateDateOffset();
+    if (getTop() > offset) {
+        scrollUp.classList.add("scroll-up--active"); 
+    } else {
+        scrollUp.classList.remove("scroll-up--active"); 
+    }
+
+});
+
+//click
+scrollUp.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
