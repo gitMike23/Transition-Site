@@ -21,7 +21,7 @@
         grid-template-columns: repeat(auto-fill, 18.75rem);
         grid-template-rows: minmax(24rem, auto);
         grid-auto-rows: minmax(24rem, auto);
-        gap: 1.5rem;
+        gap: 2.5rem;
         justify-content: center;
 
         margin-bottom: 2rem;
@@ -88,11 +88,18 @@
         --clr-bootstrap: rgb(85, 60, 123);
         --clr-gulp: rgb(219, 68, 70);
         
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         transform: perspective(42.5rem) rotateY(0deg);
         background-color: rgba(44, 49, 61, 0.027);
-        
-       
+    
+        svg {
+            width: 8rem;
+            height: 10rem;            
+        }
+
 
         &-html {
             color: var(--clr-html);
@@ -156,6 +163,8 @@
 
         &-descr {
             font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.5;
         }   
     }
 
