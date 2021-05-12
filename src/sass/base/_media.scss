@@ -43,11 +43,8 @@
         width: 720px;
         padding: 0 1.2rem;
 
-        .header {
-            &__content {
-                
-                font-size: 0.9rem;
-            }
+        .header__content, .nav-header__content {  
+            font-size: 0.9rem;
         }
 
         .developer {
@@ -97,7 +94,7 @@
         .tools {
 
             &__content {
-                padding-top: 3.8rem;
+                padding-top: 1rem;
             }
 
             &__row {
@@ -105,13 +102,41 @@
             }
         }
 
+        .projects {
+
+            
+            &__cards {
+                .row {
+
+                    .card {
+                        width: 20rem;
+                        padding: 14rem 0 0 0;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .cursor {
+        display: none;
     }
 }
 
 @media (max-width: 767px) {
     .container {
-        width: 540px;
+        width: 90%;
 
+        .header {
+
+            &__burger {
+
+
+                &-line {
+                    width: 2rem;
+                }
+            }
+        }
         
         .title {
         
@@ -170,22 +195,104 @@
             bottom: 2rem;
         }
 
+
+        .nav-main {
+
+            &__content {
+                flex-direction: column-reverse;
+                justify-content: space-around;
+    
+                
+            }
+    
+            &__links {
+                display: flex;
+                gap: 1rem; 
+                margin: 0;
+                padding: 1rem 0;
+                
+                li {
+                    margin: 0;
+                }
+                
+            }
+    
+            &__link {
+                padding: 0.3rem 0.5rem;
+                font-size: 1.2rem;
+            }
+        }
+    
+        .nav-contact {
+            padding: 0;
+            margin: 0;
+    
+            &__title {
+                padding: 1.1rem 0;
+                font-size: 1.8rem;
+    
+            }
+    
+            &__text {
+                font-size: 1.3rem;
+            }
+        }
+
+        .projects {
+
+            &__title {
+                margin-bottom: 1.2rem;
+            }
+            
+            &__cards {
+                .row {
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 0;
+
+                    .card {
+                        width: 20rem;
+                        padding: 14rem 0 0 0;
+
+                        &__title {
+                            font-size: 1.1rem;
+                        }
+
+                        &__text {
+                            font-size: 1rem;
+                        }
+
+                        &__btn {
+                            font-size: 1.1rem;  
+                        }
+                    }
+                }
+            }
+        }
+
+        .btn {
+            font-size: 1rem;
+        }
         
     }
     .cursor {
         display: none;
     }
+
+
+   
 }
 
 @media (max-width: 575px) {
     .container {
-        width: 280px;
+        width: 100%;
+
+        .header__content, .nav-header__content  {
+            font-size: 0.8rem;
+           
+        }
 
         .header {
-
-            &__content {
-                font-size: 0.7rem;
-            }
 
             &__burger {
 
@@ -284,5 +391,86 @@
             right: 1rem;
         }
         
+
+        .nav-main {
+
+            &__content {
+                flex-direction: column-reverse;
+                justify-content: space-around;
+
+                
+            }
+
+            &__links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem; 
+                margin: 0;
+                padding: 1rem 0;
+                justify-content: space-between;
+                
+                li {
+                    margin: 0;
+                }
+                
+            }
+
+            &__link {
+                padding: 0.3rem 0.5rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        .nav-contact {
+            padding: 0;
+            margin: 0;
+
+            &__title {
+                padding: 1.1rem 0;
+                font-size: 1.8rem;
+
+            }
+
+            &__text {
+                font-size: 1.3rem;
+            }
+        }
+
+
+        .projects {
+
+            &__title {
+                margin-bottom: 1.2rem;
+            }
+            
+            &__cards {
+                .row {
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 0;
+
+                    .card {
+                        width: 18rem;
+                        padding: 12rem 0 0 0;
+
+                        &__title {
+                            font-size: 1rem;
+                        }
+
+                        &__text {
+                            font-size: 0.9rem;
+                        }
+
+                        &__btn {
+                            font-size: 1rem;    
+                        }
+                    }
+                }
+            }
+        }
+        
+        .btn {
+            font-size: 0.9rem;
+        }
     }
 } 
