@@ -13,7 +13,7 @@ const screenHeigth = window.screen.height;
 // console.log(screenWidth);
 
 
-if (screenWidth>992) {
+if (screenWidth>991) {
     window.addEventListener('mousemove', cursorMove);
     window.addEventListener('mouseover', activeCursor);
 
